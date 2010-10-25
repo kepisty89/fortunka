@@ -1,4 +1,4 @@
-<%= form_for(@fortune) do |f| %>
+<%= simple_form_for(@fortune) do |f| %>
   <% if @fortune.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@fortune.errors.count, "error") %> prohibited this fortune from being saved:</h2>
@@ -10,20 +10,10 @@
       </ul>
     </div>
   <% end %>
+<%= f.input :title, :label => 'Tytuł', :input_html => { :id => 'textfield'} %>
+<%= f.input :author, :label => 'Autor', :input_html => { :id => 'textfield'} %>
+<%= f.input :content, :label => 'Cytat', :input_html => { :id => 'content'} %>
+<%= f.button :submit, :label => 'Utwórz', :input_html => { :id => 'buttonl'} %>
 
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :author %><br />
-    <%= f.text_field :author %>
-  </div>
-  <div class="field">
-    <%= f.label :content %><br />
-    <%= f.text_area :content %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+ 
 <% end %>

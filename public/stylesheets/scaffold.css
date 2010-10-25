@@ -54,3 +54,31 @@ div.field, div.actions {
   font-size: 12px;
   list-style: square;
 }
+
+.simple_form label{
+    font: 1.2em/1.0em DaxCompact-RegularRegular, Georgia, Times, 'Times New Roman', serif;
+    font-variant: small-caps;
+    margin: 5px;
+    
+}
+
+#content{
+    width: 400px;
+    height: 120px;
+    margin: 8px;
+    background-color : #E4E3FA;
+    border: 1px solid #355485;
+    margin: 10px;
+}
+
+#textfield{
+    background-color : #E4E3FA;
+    border: 1px solid #355485;
+    width: 230px;
+    margin: 10px;
+
+}
+
+#buttonl{    
+    
+}

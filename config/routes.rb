@@ -1,4 +1,6 @@
 Fortunka2::Application.routes.draw do
+  get "home/allfortunes"
+
   resources :fortunes
 
   get "home/index"

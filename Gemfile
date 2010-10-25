@@ -14,5 +14,7 @@ group :development do
   gem 'hirb'
 
 gem 'will_paginate', '~> 3.0.beta'
+gem 'ajaxful_rating'
+gem 'simple_form'
 
 end
