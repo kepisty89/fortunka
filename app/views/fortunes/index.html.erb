@@ -1,27 +1,76 @@
-<h1>Listing fortunes</h1>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Fortunki</title>
+    <style type="text/css">
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Author</th>
-    <th>Content</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+      body { background-color: orange; text-align: center; font-family: arial, sans-serif; }
 
-<% @fortunes.each do |fortune| %>
-  <tr>
-    <td><%= fortune.title %></td>
-    <td><%= fortune.author %></td>
-    <td><%= fortune.content %></td>
-    <td><%= link_to 'Show', fortune %></td>
-    <td><%= link_to 'Edit', edit_fortune_path(fortune) %></td>
-    <td><%= link_to 'Destroy', fortune, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
+      div.background {
+        width: 70%;
+        padding: 0 4em;
+        background-color: khaki;
+        margin: 4em auto 0 auto;
+        border: 1px solid #ccc;
+        border-right-color: #999;
+        border-bottom-color: #999;
+      }
 
-<br />
+      h1,h3 { color: #222;
+              margin-bottom: 0.3em;
+              font: 2.4em/1.8em DaxCompact-RegularRegular, Georgia, Times, 'Times New Roman', serif;
+      }
 
-<%= link_to 'New Fortune', new_fortune_path %>
+      h2 {
+        font: 1.4em/1.8em DaxCompact-RegularRegular, Georgia, Times, 'Times New Roman', serif;
+      }
+
+      td.author {
+        font: 1.2em/1.0em DaxCompact-RegularRegular, Georgia, Times, 'Times New Roman', serif;
+      }
+
+      td.title {
+        font: 1.6em/1.0em DaxCompact-RegularRegular, Georgia, Times, 'Times New Roman', serif;
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <h1>Spis fortunek w serwisie</h1>
+    <div class="background">
+      <br/>
+      <table cellpadding="2" cellspacing="14" align="center">
+        <tr>
+          <th><u>Tytuł</u></th>
+          <th width="20px"/>
+          <th><u>Autor</u></th>
+          <th><u>Treść</u></th>
+          <th/>
+          <th/>
+          <th><u>Opcje</u></th>
+        </tr>
+
+        <% @fortunes.each do |fortune| %>
+          <tr align="center">
+            <td class="title"><%= fortune.title %></td>
+            <td width="20px"/>
+            <td class="author"><%= fortune.author %></td>
+            <td><%= fortune.content %></td>
+            <td width="90px"/>
+            <td><%= link_to 'Pokaż', fortune %></td>
+            <td><%= link_to 'Edytuj', edit_fortune_path(fortune) %></td>
+            <td><%= link_to 'Usuń', fortune, :confirm => 'Jesteś pewien?', :method => :delete %></td>
+          </tr>
+        <% end %>
+      </table>
+
+      <br />
+      <br />
+      <%= link_to 'Stwórz nową fortunkę!', new_fortune_path %>
+    </div>
+  </body>
+  <br/>
+  <%= image_tag("http://i4.photobucket.com/albums/y143/cute-spot/site-graphics/emo_scene_quotes/random.png", :alt => "Quotes") %>
+  <p>Prepared for ASI - Łukasz Kepiński</p>
+</html>

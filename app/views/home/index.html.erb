@@ -7,7 +7,7 @@
       body { background-color: orange; text-align: center; font-family: arial, sans-serif; }
 
       div.background {
-        width: 70%;
+        width: 700px;
         padding: 0 4em;
         background-color: khaki;
         margin: 4em auto 0 auto;
@@ -47,15 +47,18 @@
 
       <table cellpadding="2" cellspacing="14" align="center">
         <tr>
-          <th>Tytuł</th>
-          <th width="20px"/>
-          <th>Autor</th>
+          <th><u>Tytuł</u></th>
+          <th>
+          <th><u>Autor</u></th>
+          <th/>
+          <th/>
+          <th><u>Opcje</u></th>
         </tr>
 
         <% @fortunes.each do |fortune| %>
           <tr align="center">
             <td class="title"><%= fortune.title %></td>
-            <td width="20px"/>
+            <td width="40px"/>
             <td class="author"><%= fortune.author %></td>
           <!--  <td><%= fortune.content %></td> -->
             <td width="90px"/>
