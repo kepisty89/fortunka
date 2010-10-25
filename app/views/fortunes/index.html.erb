@@ -7,7 +7,7 @@
       body { background-color: orange; text-align: center; font-family: arial, sans-serif; }
 
       div.background {
-        width: 70%;
+        width: 700px;
         padding: 0 4em;
         background-color: khaki;
         margin: 4em auto 0 auto;
@@ -16,13 +16,18 @@
         border-bottom-color: #999;
       }
 
-      h1,h3 { color: #222;
-              margin-bottom: 0.3em;
-              font: 2.4em/1.8em DaxCompact-RegularRegular, Georgia, Times, 'Times New Roman', serif;
+      h1 { color: #222;
+           margin-bottom: 1.0em;
+           font: 2.4em/1.8em DaxCompact-RegularRegular, Georgia, Times, 'Times New Roman', serif;
       }
 
       h2 {
         font: 1.4em/1.8em DaxCompact-RegularRegular, Georgia, Times, 'Times New Roman', serif;
+      }
+
+      h3{
+        margin-top: -2.6em;
+        font: 1em/1.8em DaxCompact-RegularRegular, Georgia, Times, 'Times New Roman', serif;
       }
 
       td.author {
@@ -37,15 +42,28 @@
   </head>
 
   <body>
-    <h1>Spis fortunek w serwisie</h1>
+    <%= image_tag("http://www.z-microtech.com/images/Pursuit80.png", :alt => "Quotes") %>
+    <h1>Fortunka - znajdź swój cytat na dziś!</h1>
+      <h3>| <%= link_to 'Stwórz nową fortunkę!', new_fortune_path %> |
+      </h3>
+
     <div class="background">
-      <br/>
+      <h2>Dostępne fortunki:</h2>
+
+      <!-- TOFIX: Searching is not working properly
+      <% form_tag fortunes_path, :method => 'get' do  %>
+        <p>
+          <%=  text_field_tag :search, params[:search] %>
+          <%= submit_tag "Szukaj", :name => nil %>
+        </p>
+        <% end %>
+      -->
+
       <table cellpadding="2" cellspacing="14" align="center">
         <tr>
           <th><u>Tytuł</u></th>
-          <th width="20px"/>
+          <th>
           <th><u>Autor</u></th>
-          <th><u>Treść</u></th>
           <th/>
           <th/>
           <th><u>Opcje</u></th>
@@ -54,23 +72,30 @@
         <% @fortunes.each do |fortune| %>
           <tr align="center">
             <td class="title"><%= fortune.title %></td>
-            <td width="20px"/>
+            <td width="40px"/>
             <td class="author"><%= fortune.author %></td>
-            <td><%= fortune.content %></td>
             <td width="90px"/>
             <td><%= link_to 'Pokaż', fortune %></td>
             <td><%= link_to 'Edytuj', edit_fortune_path(fortune) %></td>
             <td><%= link_to 'Usuń', fortune, :confirm => 'Jesteś pewien?', :method => :delete %></td>
           </tr>
         <% end %>
+
       </table>
 
       <br />
       <br />
-      <%= link_to 'Stwórz nową fortunkę!', new_fortune_path %>
+      <%=will_paginate @fortunes%>
+      <br />
+      <br />
+      | <%= link_to 'Stwórz nową fortunkę!', new_fortune_path %> |
+
     </div>
   </body>
   <br/>
+  <%= image_tag("http://www.vinodlive.com/wp-content/uploads/2007/09/image8.png", :alt => "Quotes") %>
+  <br/>
   <%= image_tag("http://i4.photobucket.com/albums/y143/cute-spot/site-graphics/emo_scene_quotes/random.png", :alt => "Quotes") %>
+
   <p>Prepared for ASI - Łukasz Kepiński</p>
 </html>

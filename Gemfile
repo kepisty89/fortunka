@@ -12,4 +12,7 @@ gem 'unicorn'
 group :development do
   gem 'wirble'
   gem 'hirb'
+
+gem 'will_paginate', '~> 3.0.beta'
+
 end

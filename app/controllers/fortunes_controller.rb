@@ -2,7 +2,9 @@ class FortunesController < ApplicationController
   # GET /fortunes
   # GET /fortunes.xml
   def index
-    @fortunes = Fortune.all
+   @fortunes = Fortune.paginate :per_page => 5, :page => params[:page],
+                                    :conditions => ['author like ?', "%#{params[:search]}%"],
+                                    :order => 'title'
 
     respond_to do |format|
       format.html # index.html.erb
