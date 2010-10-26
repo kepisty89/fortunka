@@ -1,57 +1,52 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Fortunki</title>
-    <style type="text/css">
+<title>Fortunki</title>
+<style type="text/css">
 
-      body { background-color: orange; text-align: center; font-family: arial, sans-serif; }
+  body { background-color: orange; text-align: center; font-family: arial, sans-serif; }
 
-      div.background {
-        width: 500px;
-        padding: 0 4em;
-        background-color: khaki;
-        margin: 4em auto 0 auto;
-        border: 1px solid #ccc;
-        border-right-color: #999;
-        border-bottom-color: #999;
-      }
+  div.background {
+    width: 500px;
+    padding: 0 4em;
+    background-color: khaki;
+    margin: 4em auto 0 auto;
+    border: 1px solid #ccc;
+    border-right-color: #999;
+    border-bottom-color: #999;
+  }
 
-      h1,h3 { color: #222;
-              margin-bottom: 0.3em;
-              font: 2.4em/1.8em DaxCompact-RegularRegular, Georgia, Times, 'Times New Roman', serif;
-      }
+  h1,h3 { color: #222;
+          margin-bottom: 0.3em;
+          font: 2.4em/1.8em DaxCompact-RegularRegular, Georgia, Times, 'Times New Roman', serif;
+  }
 
-      h2 {
-        font: 1.4em/1.8em DaxCompact-RegularRegular, Georgia, Times, 'Times New Roman', serif;
-      }
+  h2 {
+    font: 1.4em/1.8em DaxCompact-RegularRegular, Georgia, Times, 'Times New Roman', serif;
+  }
 
-      td.author {
-        font: 1.2em/1.0em DaxCompact-RegularRegular, Georgia, Times, 'Times New Roman', serif;
-      }
+  td.author {
+    font: 1.2em/1.0em DaxCompact-RegularRegular, Georgia, Times, 'Times New Roman', serif;
+  }
 
-      td.title {
-        font: 1.6em/1.0em DaxCompact-RegularRegular, Georgia, Times, 'Times New Roman', serif;
-      }
+  td.title {
+    font: 1.6em/1.0em DaxCompact-RegularRegular, Georgia, Times, 'Times New Roman', serif;
+  }
 
-    </style>
-  </head>
+</style>
 
-  <body>
-    <h1>Edycja fortunki</h1>
-    <br/>
-    <%= image_tag("http://www.dilbert.com/dyn/str_strip/000000000/00000000/0000000/100000/00000/3000/400/103417/103417.strip.gif", :alt => "Quotes") %>
+<h1>Edycja fortunki</h1>
+<br/>
+<%= image_tag("http://www.dilbert.com/dyn/str_strip/000000000/00000000/0000000/100000/00000/3000/400/103417/103417.strip.gif", :alt => "Quotes") %>
 
-    <div class="background">
-      <br/>
-
-      <%= render 'form' %>
-
-      <%= link_to 'Powrót', fortunes_path %>
-
-    </div>
-  </body>
+<div class="background">
   <br/>
-  <%= image_tag("http://i4.photobucket.com/albums/y143/cute-spot/site-graphics/emo_scene_quotes/random.png", :alt => "Quotes") %>
 
-  <p>Prepared for ASI - Łukasz Kepiński</p>
-</html>
+  <%= render 'form' %>
+
+  <%= link_to 'Powrót', fortunes_path %>
+
+</div>
+
+<br/>
+<%= image_tag("http://i4.photobucket.com/albums/y143/cute-spot/site-graphics/emo_scene_quotes/random.png", :alt => "Quotes") %>
+
+<p>Prepared for ASI - Łukasz Kepiński</p>
+

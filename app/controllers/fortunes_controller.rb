@@ -1,6 +1,7 @@
 class FortunesController < ApplicationController
   # GET /fortunes
   # GET /fortunes.xml
+
   def index
    @fortunes = Fortune.paginate :per_page => 5, :page => params[:page],
                                     :conditions => ['title like ?', "%#{params[:search]}%"],
@@ -82,4 +83,6 @@ class FortunesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+
 end

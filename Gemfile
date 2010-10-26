@@ -16,5 +16,9 @@ group :development do
 gem 'will_paginate', '~> 3.0.beta'
 gem 'ajaxful_rating'
 gem 'simple_form'
+gem 'acts-as-taggable-on'
+gem 'devise'
+gem 'devise_rpx_connectable'
+
 
 end

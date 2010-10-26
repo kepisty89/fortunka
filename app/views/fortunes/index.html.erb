@@ -1,99 +1,99 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Fortunki</title>
-    <style type="text/css">
+<title>Fortunki</title>
+<style type="text/css">
 
-      body { background-color: orange; text-align: center; font-family: arial, sans-serif; }
+  body { background-color: orange; text-align: center; font-family: arial, sans-serif; }
 
-      div.background {
-        width: 700px;
-        padding: 0 4em;
-        background-color: khaki;
-        margin: 4em auto 0 auto;
-        border: 1px solid #ccc;
-        border-right-color: #999;
-        border-bottom-color: #999;
-      }
+  div.background {
+    width: 700px;
+    padding: 0 4em;
+    background-color: khaki;
+    margin: 4em auto 0 auto;
+    border: 1px solid #ccc;
+    border-right-color: #999;
+    border-bottom-color: #999;
+  }
 
-      h1 { color: #222;
-           margin-bottom: 1.0em;
-           font: 2.4em/1.8em DaxCompact-RegularRegular, Georgia, Times, 'Times New Roman', serif;
-      }
+  h1 { color: #222;
+       margin-bottom: 1.0em;
+       font: 2.4em/1.8em DaxCompact-RegularRegular, Georgia, Times, 'Times New Roman', serif;
+  }
 
-      h2 {
-        font: 1.4em/1.8em DaxCompact-RegularRegular, Georgia, Times, 'Times New Roman', serif;
-      }
+  h2 {
+    font: 1.4em/1.8em DaxCompact-RegularRegular, Georgia, Times, 'Times New Roman', serif;
+  }
 
-      h3{
-        margin-top: -2.6em;
-        font: 1em/1.8em DaxCompact-RegularRegular, Georgia, Times, 'Times New Roman', serif;
-      }
+  h3{
+    margin-top: -2.6em;
+    font: 1em/1.8em DaxCompact-RegularRegular, Georgia, Times, 'Times New Roman', serif;
+  }
 
-      td.author {
-        font: 1.2em/1.0em DaxCompact-RegularRegular, Georgia, Times, 'Times New Roman', serif;
-      }
+  td.author {
+    font: 1.2em/1.0em DaxCompact-RegularRegular, Georgia, Times, 'Times New Roman', serif;
+  }
 
-      td.title {
-        font: 1.6em/1.0em DaxCompact-RegularRegular, Georgia, Times, 'Times New Roman', serif;
-      }
+  td.title {
+    font: 1.6em/1.0em DaxCompact-RegularRegular, Georgia, Times, 'Times New Roman', serif;
+  }
 
-    </style>
-  </head>
+</style>
 
-  <body>
-    <%= image_tag("http://www.z-microtech.com/images/Pursuit80.png", :alt => "Quotes") %>
-    <h1>Fortunka - znajdź swój cytat na dziś!</h1>
-    <h3>| <%= link_to 'Stwórz nową fortunkę!', new_fortune_path %> |
-      </h3>
 
-    <div class="background">
-      <h2>Spis fortunek:</h2>
 
-  
-      <% form_tag fortunes_path, :method => 'get' do  %>
-        <p>
-          <%=  text_field_tag :search, params[:search] %>
-          <%= submit_tag "Szukaj", :name => nil %>
-        </p>
-        <% end %>
-  
+<%= image_tag("http://www.z-microtech.com/images/Pursuit80.png", :alt => "Quotes") %>
+<h1>Fortunka - znajdź swój cytat na dziś!</h1>
+<h3>| <%= link_to 'Stwórz nową fortunkę!', new_fortune_path %> |
+  <%= link_to_rpx "Zaloguj się na zewnętrzne konto!", user_session_url %>
+</h3>
 
-      <table cellpadding="2" cellspacing="14" align="center">
-        <tr>
-          <th><u>Tytuł</u></th>
-          <th>
-          <th><u>Autor</u></th>
-          <th/>
-          <th/>
-          <th><u>Opcje</u></th>
-        </tr>
+<div class="background">
+  <h2>Spis fortunek:</h2>
 
-        <% @fortunes.each do |fortune| %>
-          <tr align="center">
-            <td class="title"><%= fortune.title %></td>
-            <td width="40px"/>
-            <td class="author"><%= fortune.author %></td>
-            <td width="90px"/>
-            <td><%= link_to 'Pokaż', fortune %></td>
-            <td><%= link_to 'Edytuj', edit_fortune_path(fortune) %></td>
-            <td><%= link_to 'Usuń', fortune, :confirm => 'Jesteś pewien?', :method => :delete %></td>
-          </tr>
-        <% end %>
 
-      </table>
+  <% form_tag fortunes_path, :method => 'get' do  %>
+    <p>
+      <%=  text_field_tag :search, params[:search] %>
+      <%= submit_tag "Szukaj", :name => nil %>
+    </p>
+  <% end %>
 
-      <br />
-      <br />
-      <%=will_paginate @fortunes%>
-      <br />
-      <br />     
-    </div>
-  </body>
+
+  <table cellpadding="2" cellspacing="14" align="center">
+    <tr>
+      <th><u>Tytuł</u></th>
+      <th>
+      <th><u>Autor</u></th>
+      <th/>
+      <th/>
+      <th><u>Opcje</u></th>
+    </tr>
+
+    <% @fortunes.each do |fortune| %>
+      <tr align="center">
+        <td class="title"><%= fortune.title %></td>
+        <td width="40px"/>
+        <td class="author"><%= fortune.author %></td>
+        <td width="90px"/>
+        <td><%= link_to 'Pokaż', fortune %></td>
+        <td><%= link_to 'Edytuj', edit_fortune_path(fortune) %></td>
+        <td><%= link_to 'Usuń', fortune, :confirm => 'Jesteś pewien?', :method => :delete %></td>
+      </tr>
+    <% end %>
+
+  </table>
+
+  <br />
+  <br />
+  <%=will_paginate @fortunes%>
+  <br />
   <br/>
-  <%= image_tag("http://www.vinodlive.com/wp-content/uploads/2007/09/image8.png", :alt => "Quotes") %>
-  <br/>
-  <%= image_tag("http://i4.photobucket.com/albums/y143/cute-spot/site-graphics/emo_scene_quotes/random.png", :alt => "Quotes") %>
+  <br />
+  <h3>| <%= link_to 'Stwórz nową fortunkę!', new_fortune_path %> | </h3>
+</div>
+<%= javascript_include_rpx(user_session_url) %>
 
-  <p>Prepared for ASI - Łukasz Kepiński</p>
-</html>
+<br/>
+<%= image_tag("http://www.vinodlive.com/wp-content/uploads/2007/09/image8.png", :alt => "Quotes") %>
+<br/>
+<%= image_tag("http://i4.photobucket.com/albums/y143/cute-spot/site-graphics/emo_scene_quotes/random.png", :alt => "Quotes") %>
+
+<p>Prepared for ASI - Łukasz Kepiński</p>
